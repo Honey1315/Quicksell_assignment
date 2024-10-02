@@ -16,11 +16,11 @@ import display from '../assets/Display.svg';
 import down from '../assets/down.svg';
 import './Kanbanboard.css';
 const KanbanBoard = ({ tickets, users }) => {
-  const [grouping, setGrouping] = useState(localStorage.getItem('kanban_grouping'));
-  const [sorting, setSorting] = useState(localStorage.getItem('kanban_sorting'));
-  const [groupedTickets, setGroupedTickets] = useState({});
-  const [show, setShow] = useState(false);
-  useEffect(() => {
+    const [grouping, setGrouping] = useState(localStorage.getItem('kanban_grouping') || 'status');
+    const [sorting, setSorting] = useState(localStorage.getItem('kanban_sorting') || 'priority');  
+    const [groupedTickets, setGroupedTickets] = useState({});
+    const [show, setShow] = useState(false);
+    useEffect(() => {
     const savedGrouping = localStorage.getItem('kanban_grouping');
     const savedSorting = localStorage.getItem('kanban_sorting');
     if (savedGrouping) setGrouping(savedGrouping);
